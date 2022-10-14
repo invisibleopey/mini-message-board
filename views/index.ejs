@@ -2,10 +2,21 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <nav><a href="/new">Add to the message board</a></nav>
+    <ul>
+      <% for( let i = messages.length - 1; i >= 0; i-- ) { %>
+      <li>
+        <div>
+          <p><%= messages[i].text %></p>
+          <span class="message-user"> <%= messages[i].user %> </span>
+          <span> <%= messages[i].added %> </span>
+        </div>
+      </li>
+      <% } %>
+    </ul>
   </body>
 </html>
